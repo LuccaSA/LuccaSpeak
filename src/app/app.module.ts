@@ -3,10 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { WordReferencesComponent } from './word-references/word-references.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
+		WordReferencesComponent,
 	],
 	imports: [
 		BrowserModule,

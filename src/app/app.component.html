@@ -1,3 +1,3 @@
 <header>Lucca Speak</header>
-<ls-sections></ls-sections>
-<ls-word-references></ls-word-references>
+<ls-sections (onSectionSelected)="updateSelectedSection($event)"></ls-sections>
+<ls-word-references [section]="selectedSection"></ls-word-references>

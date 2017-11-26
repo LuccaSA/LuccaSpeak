@@ -1,5 +1,8 @@
 <nav>
-	<a *ngFor="let section of sections">
+	<a class="section"
+	[ngClass]="{ 'selected': section === selectedSection }"
+	*ngFor="let section of sections"
+	(click)="selectSection(section)">
 		{{ section.name }}
 	</a>
 </nav>

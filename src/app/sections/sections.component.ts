@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Section } from '../model';
 
@@ -8,6 +8,8 @@ import { Section } from '../model';
 	styleUrls: ['./sections.component.scss']
 })
 export class SectionsComponent implements OnInit {
+	@Output() onSectionSelected = new EventEmitter<Section>();
+
 	sections = [
 		Section.tribe,
 		Section.geeks,
@@ -16,10 +18,15 @@ export class SectionsComponent implements OnInit {
 		Section.consulting,
 		Section.sales,
 	];
+	selectedSection: Section;
 
 	constructor() { }
 
 	ngOnInit() {
 	}
 
+	selectSection(section: Section): void {
+		this.selectedSection = section;
+		this.onSectionSelected.emit(section);
+	}
 }

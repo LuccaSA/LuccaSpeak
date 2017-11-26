@@ -13,9 +13,14 @@ export class WordReferencesComponent implements OnInit {
 		this._section = value;
 		this.filterWordReferences();
 	};
+	@Input() set search(value: string) {
+		this._search = value;
+		this.filterWordReferences();
+	};
 
 	wordReferences: WordReference[] = [];
 	private _section: Section;
+	private _search: string;
 	private _wordReferences: WordReference[] = WordReferences;
 
 	constructor() { }
@@ -24,7 +29,18 @@ export class WordReferencesComponent implements OnInit {
 	}
 
 	filterWordReferences(): void {
-		this.wordReferences = this._wordReferences.filter(w => w.section === this._section);
+		if (!this._section && !this._search) {
+			this.wordReferences = [];
+		} else {
+			this.wordReferences = [...this._wordReferences];
+
+			if (!!this._section) {
+				this.wordReferences = this.wordReferences.filter(w => w.section === this._section);
+			}
+			if (!!this._search) {
+				this.wordReferences = this.wordReferences.filter(w => w.term.toLowerCase().startsWith(this._search.toLowerCase()));
+			}
+		}
 	}
 
 }

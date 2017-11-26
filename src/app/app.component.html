@@ -1,3 +1,4 @@
 <header>Lucca Speak</header>
+<ls-search (onSearchChange)="updateSearch($event)"></ls-search>
 <ls-sections (onSectionSelected)="updateSelectedSection($event)"></ls-sections>
-<ls-word-references [section]="selectedSection"></ls-word-references>
+<ls-word-references [section]="selectedSection" [search]="search"></ls-word-references>

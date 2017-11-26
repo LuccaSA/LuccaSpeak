@@ -9,8 +9,13 @@ import { Section } from './model';
 })
 export class AppComponent {
 	selectedSection: Section;
+	search: string;
 
 	updateSelectedSection(section: Section): void {
 		this.selectedSection = section;
+	}
+
+	updateSearch(search: string): void {
+		this.search = search;
 	}
 }

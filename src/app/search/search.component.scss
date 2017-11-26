@@ -1,0 +1,26 @@
+:host {
+	.clearable-input {
+		display: inline-block;
+		border: 2px #999 solid;
+
+		> input {
+			border: none;
+			font-size: 1.5em;
+			line-height: 2em;
+			height: 2em;
+			width: 30em;
+			padding: 0.25em;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		> .clear-button {
+			visibility: hidden;
+			&.visible {
+				visibility: visible;
+			}
+		}
+	}
+}

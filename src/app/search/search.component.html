@@ -1,0 +1,11 @@
+<div class="clearable-input">
+	<input type="text" placeholder="Je cherche un mot" [(ngModel)]="keyword" [formControl]="searchControl"/>
+	<button mat-button
+	class="clear-button"
+	[ngClass]="{ 'visible': !!keyword }"
+	mat-icon-button
+	aria-label="Clear"
+	(click)="clearKeyword()">
+		<mat-icon>close</mat-icon>
+	</button>
+</div>

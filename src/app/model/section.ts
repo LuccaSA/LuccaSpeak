@@ -7,6 +7,6 @@ export class Section {
 	static sales = new Section('Sales');
 
 	constructor(
-		name: string,
+		public name: string,
 	) {}
 }

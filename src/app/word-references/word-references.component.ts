@@ -34,7 +34,7 @@ export class WordReferencesComponent implements OnInit {
 		} else {
 			this.wordReferences = [...this._wordReferences];
 
-			if (!!this._section) {
+			if (!!this._section && this._section !== Section.all) {
 				this.wordReferences = this.wordReferences.filter(w => w.section === this._section);
 			}
 			if (!!this._search) {

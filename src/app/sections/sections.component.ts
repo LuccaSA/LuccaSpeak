@@ -17,6 +17,7 @@ export class SectionsComponent implements OnInit {
 		Section.marketing,
 		Section.consulting,
 		Section.sales,
+		Section.all,
 	];
 	selectedSection: Section;
 

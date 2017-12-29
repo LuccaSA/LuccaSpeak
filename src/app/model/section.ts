@@ -5,6 +5,7 @@ export class Section {
 	static marketing = new Section('Marketing');
 	static consulting = new Section('Consulting');
 	static sales = new Section('Sales');
+	static all = new Section('Tous les mots');
 
 	constructor(
 		public name: string,

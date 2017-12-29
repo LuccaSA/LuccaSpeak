@@ -18,10 +18,12 @@ export class WordReferencesComponent implements OnInit {
 		this.filterWordReferences();
 	};
 
-	wordReferences: WordReference[] = [];
+	filteredWordReferences: WordReference[] = [];
+	filteredBySearchWordReferences: WordReference[] = [];
+
+	private wordReferences: WordReference[] = WordReferences;
 	private _section: Section;
 	private _search: string;
-	private _wordReferences: WordReference[] = WordReferences;
 
 	constructor() { }
 
@@ -30,15 +32,16 @@ export class WordReferencesComponent implements OnInit {
 
 	filterWordReferences(): void {
 		if (!this._section && !this._search) {
-			this.wordReferences = [];
+			this.filteredWordReferences = [];
 		} else {
-			this.wordReferences = [...this._wordReferences];
+			this.filteredWordReferences = [...this.wordReferences];
 
 			if (!!this._section && this._section !== Section.all) {
-				this.wordReferences = this.wordReferences.filter(w => w.section === this._section);
+				this.filteredWordReferences = this.filteredWordReferences.filter(w => w.section === this._section);
 			}
 			if (!!this._search) {
-				this.wordReferences = this.wordReferences.filter(w => w.term.toLowerCase().startsWith(this._search.toLowerCase()));
+				this.filteredWordReferences = this.filteredWordReferences.filter(w => w.term.toLowerCase().startsWith(this._search.toLowerCase()));
+				this.filteredBySearchWordReferences = this.wordReferences.filter(w => w.term.toLowerCase().startsWith(this._search.toLowerCase()));
 			}
 		}
 	}

@@ -1,3 +1,7 @@
-<ls-word-reference *ngFor="let wordReference of wordReferences"
+<ls-word-reference *ngFor="let wordReference of filteredWordReferences"
 [wordReference]="wordReference">
 </ls-word-reference>
+
+<div *ngIf="!filteredWordReferences.length && !!filteredBySearchWordReferences.length">
+	Il n'y a pas de résultat correspondant à ta recherche dans cette section.
+</div>
